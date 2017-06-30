@@ -22,3 +22,7 @@ manifests/bosh-state.json
 
 /pkg
 /bin
+
+# Don't vendor dependencies; instead use `go get ./...`
+src/github.com/*
+!src/github.com/cunnie

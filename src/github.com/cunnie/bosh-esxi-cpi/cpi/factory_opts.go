@@ -1,6 +1,6 @@
 package cpi
 
-import "github.com/cunnie/bosh-esxi-cpi/apiv1"
+import "github.com/cppforlife/bosh-cpi-go/apiv1"
 
 type FactoryOpts struct {
 	ESXi  ESXiOpts

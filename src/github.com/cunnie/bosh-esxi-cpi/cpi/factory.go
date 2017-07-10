@@ -1,9 +1,9 @@
 package cpi
 
 import (
+	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 	boshsys "github.com/cloudfoundry/bosh-utils/system"
 	boshuuid "github.com/cloudfoundry/bosh-utils/uuid"
-	boshlog "github.com/cloudfoundry/bosh-utils/logger"
 )
 
 type Factory struct {

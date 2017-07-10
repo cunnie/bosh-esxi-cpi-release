@@ -1,0 +1,35 @@
+#!/bin/bash
+
+result=0
+
+bin=$(dirname $0)
+
+echo -e "\n Formatting packages..."
+go fmt github.com/cunnie/bosh-esxi-cpi/...
+let "result+=$?"
+
+echo -e "\n Testing packages..."
+ginkgo -r $bin/..
+let "result+=$?"
+
+# todo vet
+# echo -e "\n Vetting packages for potential issues..."
+# go vet github.com/cunnie/bosh-esxi-cpi/...
+# let "result+=$?"
+
+echo -e "\n Running build script to confirm everything compiles..."
+go build -o $bin/cpi github.com/cunnie/bosh-esxi-cpi/main
+let "result+=$?"
+export GOARCH=amd64
+export GOOS=linux
+export GOTOOLDIR=$(go env GOROOT)/pkg/linux_amd64
+go build -o $bin/cpi-linux-amd64 github.com/cunnie/bosh-esxi-cpi/main
+let "result+=$?"
+
+if [ $result -eq 0 ]; then
+  echo -e "\nSUITE SUCCESS"
+else
+  echo -e "\nSUITE FAILURE"
+fi
+
+exit $result

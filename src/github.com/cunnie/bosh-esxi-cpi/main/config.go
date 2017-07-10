@@ -2,7 +2,7 @@ package main
 
 import (
 	boshsys "github.com/cloudfoundry/bosh-utils/system"
-	"github.com/cppforlife/bosh-docker-cpi-release/src/github.com/cppforlife/bosh-docker-cpi/cpi"
+	"github.com/cunnie/bosh-esxi-cpi/cpi"
 )
 
 type Config struct {

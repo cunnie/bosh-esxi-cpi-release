@@ -1,11 +1,11 @@
 package cpi
 
-import "github.com/cppforlife/bosh-cpi-go/apiv1"
+import (
+	"github.com/cppforlife/bosh-cpi-go/apiv1"
+	"github.com/vmware/govmomi"
+)
 
 type FactoryOpts struct {
-	ESXi  ESXiOpts
-	Agent apiv1.AgentOptions
-}
-
-type ESXiOpts struct {
+	ESXiClient *govmomi.Client
+	Agent      apiv1.AgentOptions
 }

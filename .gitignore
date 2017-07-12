@@ -24,7 +24,11 @@ manifests/bosh-state.json
 /bin
 
 # Don't vendor dependencies; instead use `go get ./...`
+# Yeah, I know, and that's my personal decision
 src/github.com/*
 src/golang.org/*
 src/gopkg.in/*
 !src/github.com/cunnie
+
+# don't check-in the Golang-generated executables
+src/github.com/cunnie/bosh-esxi-cpi/bin/
